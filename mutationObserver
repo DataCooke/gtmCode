@@ -1,0 +1,22 @@
+let observerOptions = {
+  childList: true,
+  attributes: true,
+  characterData: true,
+  subtree: true,
+  attributeFilter: ['one', 'two'],
+  attributeOldValue: true,
+  characterDataOldValue: true
+};
+
+
+let myElement = document.getElementById('textlink'),
+
+ observer = new MutationObserver(callback);
+    
+function callback (mutations) {
+  console.log(mutations)
+    console.log(window.google_tag_manager["GTM-TWJS4J3"].dataLayer.get('event'))
+
+}
+
+observer.observe(myElement, observerOptions);
