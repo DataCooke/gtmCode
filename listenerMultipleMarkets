@@ -1,0 +1,44 @@
+<script>
+(function (){
+
+  var parent = document.getElementsByClassName('create-invite-radio-group');
+  var group = document.getElementsByClassName("ns-radio");
+  var left = group[0];
+  var middle = group[1];
+  var right = group[2]
+  
+  parent[0].addEventListener('click', function() {
+    if (left.classList.contains("checked")) {
+      console.log('left checked')
+      dataLayer.push({
+        'event': 'linkTypeSelected',
+        'data' : 'Customer'
+      })
+    }
+    else if (middle.classList.contains("checked")) {
+      console.log('middle checked')
+      dataLayer.push({
+        'event': 'linkTypeSelected',
+        'data' : 'Member'
+      })
+    }
+    else if (right.classList.contains("checked")) {
+      console.log('right checked')
+      dataLayer.push({
+        'event': 'linkTypeSelected',
+        'data' : 'Brand Affiliate'
+      })
+    }
+    else {
+      console.log('none checked')
+    }
+  })
+  
+  dataLayer.push({
+    'event' : 'linkTypeSelected',
+    'data' : 'Member'
+  })
+
+})()
+
+</script>
