@@ -1,0 +1,11 @@
+function () {
+  
+  var linkType = document.querySelector("#content > div > div.nsInvite.section > ns-invite > div > div:nth-child(6) > div.invite-data-summary > div:nth-child(4)").textContent.replace(/\s/g,'');
+  
+  if (linkType === "") {
+    var linkType = "Member";
+   } else { 
+     
+   }
+  return linkType;
+}
