@@ -1,0 +1,12 @@
+<script>
+(function(){
+    document.querySelector("#distributorId").addEventListener('input', function (duh) {
+        console.log('dataEntered')
+        dataLayer.push({
+            'category' : 'Signup',
+            'event' : 'progressiveIntent'
+        });
+        duh.target.removeEventListener(duh.type, arguments.callee);
+    })
+})()
+</script>
