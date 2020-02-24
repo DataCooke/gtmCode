@@ -1,0 +1,18 @@
+<script>
+(function(){
+  if (JSON.parse(window.localStorage.getItem('nuskin.account.data')) != null && JSON.parse(window.localStorage.getItem('nuskin.account.data')).user.id.length > 0 && JSON.parse(window.localStorage.getItem('nuskin.account.data')).user.id.length != "") {
+      
+          var stuff = JSON.parse(window.localStorage.getItem('nuskin.account.data'));
+    	  var otherStuff = stuff.user.id;
+  	        dataLayer.push({
+            'event' : 'Signup',
+            'progressiveAction' : 'progressiveComplete',
+          	'progressiveDistId' : otherStuff
+        });
+      }
+  else {
+    console.log("user id not set in local storage")
+  }
+
+    })
+</script>
