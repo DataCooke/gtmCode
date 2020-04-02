@@ -1,0 +1,38 @@
+<script>
+(function(){
+var structureddata = {
+  "@context": "http://schema.org/",
+  "@type": "Product",
+  "name": {{productName}},
+  "image": [
+    "https://www.nuskin.com{{productImage}}"
+   ],
+  "description": {{productDescription}},
+  "sku": {{productSku}},
+  "brand": {
+    "@type": "Thing",
+    "name": "Nu Skin"
+  },
+  
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": {{productCurrency}},
+    "price": "{{productPrice}}",
+    "itemCondition": "http://schema.org/NewCondition",
+    "availability": {{productStock}},
+    "seller": {
+      "@type": "Organization",
+      "name": {{productName}}
+    },
+    "url":window.location.href
+  }
+};
+
+//load sd
+	var script = document.createElement('script');
+	script.type = 'application/ld+json';
+	script.innerHTML = JSON.stringify( structureddata );
+	document.getElementsByTagName('head')[0].appendChild(script);
+
+})(document);
+</script>
