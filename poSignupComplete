@@ -1,0 +1,35 @@
+<script>
+    (function poSignupCompletes() {
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        };
+
+        var loginStatus = getCookie("loggedIn");
+        var locStorage = JSON.parse(localStorage.getItem("nuskin.account"));
+        var createTime = locStorage.user.loginTime;
+        var currentTime = Date.now();
+        var seconds = (currentTime - createTime) * .001;
+
+        if (loginStatus == "null") {
+            console.log("no signup")
+        } else if (loginStatus == "true" && seconds < 1.5) {
+            console.log("new signup")
+            dataLayer.push({
+                'event': 'PO Signup',
+                'poSignupAction': 'poCustColdComplete'
+            });
+        }
+    })();
+</script>
