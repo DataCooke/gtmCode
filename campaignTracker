@@ -1,0 +1,89 @@
+<script>
+    function yes() {
+        var button = document.getElementById('test');
+        var link = document.getElementById('link');
+        var source = document.getElementById('source');
+        var medium = document.getElementById('medium');
+        var campaign = document.getElementById('campaign');
+        var term = document.getElementById('term');
+        var campcontent = document.getElementById('campcontent');
+
+        if (source.value === "") {
+            sourceend = '';
+        } else {
+            sourceend = '&utm_source=' + source.value
+        };
+        if (medium.value === "") {
+            mediumend = '';
+        } else {
+            mediumend = '&utm_medium=' + medium.value
+        };
+        if (campaign.value === "") {
+            campaignend = '';
+        } else {
+            campaignend = '&utm_campaign=' + campaign.value
+        };
+        if (term.value === "") {
+            termend = '';
+        } else {
+            termend = '&utm_term=' + term.value
+        };
+        if (campcontent.value === "") {
+            campcontentend = '';
+        } else {
+            campcontentend = '&utm_content=' + campcontent.value
+        };
+        if (link.value === "") {
+            var str = '(copy and paste your link above)';
+            document.getElementById('test').innerHTML = str;
+        } else {
+            var str = 'https://' + link.value +
+                sourceend +
+                mediumend +
+                campaignend +
+                termend +
+                campcontentend;
+            document.getElementById('test').innerHTML = str;
+        }
+    };
+</script>
+
+<html>
+
+<body>
+    <label>
+        Enter Link
+        <input id="link" onchange="yes()" />
+    </label>
+    <br />
+    <label>
+        Campaign Source
+        <input id="source" onchange="yes()" />
+    </label>
+    <br />
+    <label>
+        Campaign Medium
+        <input id="medium" onchange="yes()" />
+    </label>
+    <br />
+    <label>
+        Campaign Name
+        <input id="campaign" onchange="yes()" />
+    </label>
+    <br />
+    <label>
+        Campaign Term
+        <input id="term" onchange="yes()" />
+    </label>
+    <br />
+    <label>
+        Campaign Content
+        <input id="campcontent" onchange="yes()" />
+    </label>
+    <br />
+    <p><b>Campaign Tracking Link:</b></p>
+
+    <textarea id="test" onchange="yes()">(copy and paste your link above)</textarea></textarea>
+</body>
+
+</html>
