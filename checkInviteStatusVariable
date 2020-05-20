@@ -1,0 +1,13 @@
+function() {
+    var invtStatus = 'Cold';
+    var parentPage = parent.document.location.href;
+    var expression = new RegExp("(.*)/signup/brand-affiliate-invite.html(.*)|(.*)/signup/member-invite.html(.*)|(.*)/signup/customer-invite.html(.*)");
+
+    if (expression.test(parentPage)) {
+        invtStatus = 'Invt';
+        return invtStatus
+    } else {
+        invtStatus = 'Cold';
+        return invtStatus
+    }
+}
