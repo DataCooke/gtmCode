@@ -1,0 +1,25 @@
+<script>
+    function() {
+        var pg = window.location.href
+        var expression = new RegExp("(.*)\/sign-up\/sign-up\.html#\/search-distributor-potential$");
+        var expressionCC = new RegExp("(.*)\/sign-up\/sign-up\.html#\/search-distributor$");
+        var expressionDI = new RegExp("(.*)\/sign-up\/sign-up\.html\.hostAccountId=(.*)&invitationType=DISTRIBUTOR(.*)");
+        var expressionCI = new RegExp("(.*)\/sign-up\/sign-up\.html\.hostAccountId=(.*)&invitationType=RETAIL_CUST(.*)");
+        var expressionMI = new RegExp("(.*)\/sign-up\/sign-up\.html\.hostAccountId=(.*)&invitationType=PREFERRED_CUST(.*)");
+        document.cookie = "analyticsStatus=";
+
+        if (expression.test(pg)) {
+            document.cookie = "analyticsStatus=DistCold";
+        } else if (expressionCC.test(pg)) {
+            document.cookie = "analyticsStatus=CustCold";
+        } else if (expressionDI.test(pg)) {
+            document.cookie = "analyticsStatus=DistInvt";
+        } else if (expressionCI.test(pg)) {
+            document.cookie = "analyticsStatus=CustInvt";
+        } else if (expressionMI.test(pg)) {
+            document.cookie = "analyticsStatus=MembInvt";
+        } else {
+            document.cookie = "analyticsStatus=DistCold";
+        }
+    }
+</script>
